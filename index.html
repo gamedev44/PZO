@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="Project Zomboid Online Launcher" />
+  <meta property="og:description" content="Fan-made Browser game launcher for Project Zomboid Online." />
+  <meta property="og:image" content="https://cdn2.steamgriddb.com/logo_thumb/793d06f888dd5b48a08610675de866ac.png" />
+  <meta property="og:url" content="https://yourdomain.com/launcher" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#000000" />
+
+  <meta charset="UTF-8" />
+  <title>Game Launcher</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+      background: url('https://i.imgur.com/NQXrNyD.jpeg') no-repeat center center fixed;
+      background-size: 105% 105%; /* 5% larger */
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0, 0, 0, 0.45);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      animation: fadeIn 1.5s forwards;
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    .logo {
+      margin-bottom: 40px;
+    }
+
+    .logo img {
+      max-width: 320px;
+      height: auto;
+    }
+
+    .button {
+      width: 256px;
+      height: 64px;
+      background-image: url('buttons.png'); /* Replace locally or use your image link */
+      background-repeat: no-repeat;
+      background-size: 256px 192px;
+      color: white;
+      font-weight: bold;
+      font-size: 20px;
+      text-shadow: 1px 1px 2px #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 12px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border-radius: 6px;
+      border: 2px solid transparent;
+    }
+
+    .button:hover {
+      box-shadow: 0 0 15px #ffffffaa;
+      border-color: #fff;
+      transform: scale(1.05);
+    }
+
+    .button:active {
+      filter: brightness(80%);
+      box-shadow: inset 0 0 8px #00000088;
+    }
+
+    .start  { background-position: 0 0; }
+    .options { background-position: 0 -64px; }
+    .quit   { background-position: 0 -128px; }
+
+    #optionsMenu {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 20px;
+      animation: fadeIn 0.8s forwards;
+    }
+
+    .option-label {
+      color: white;
+      margin: 6px 0;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="overlay" id="mainMenu">
+    <div class="logo">
+      <img src="https://cdn2.steamgriddb.com/logo_thumb/793d06f888dd5b48a08610675de866ac.png" alt="Logo">
+    </div>
+
+    <div class="button start" onclick="startGame()">Start Game</div>
+    <div class="button options" onclick="toggleOptions()">Options</div>
+    <div class="button quit" onclick="quitGame()">Quit Game</div>
+
+    <div id="optionsMenu">
+      <div class="option-label">Sound: ✔ Enabled</div>
+      <div class="option-label">Difficulty: Hard</div>
+      <div class="option-label">V-Sync: ✔</div>
+    </div>
+  </div>
+
+  <script>
+    function startGame() {
+      window.open("https://shattereddisk.github.io/rickroll/", "_blank");
+    }
+
+    function toggleOptions() {
+      const menu = document.getElementById("optionsMenu");
+      menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+    }
+
+    function quitGame() {
+      document.getElementById("mainMenu").style.display = "none";
+      window.close();
+    }
+  </script>
+
+</body>
+</html>
